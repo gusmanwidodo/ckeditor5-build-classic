@@ -68,7 +68,7 @@ ClassicEditor.builtinPlugins = [
 	ImageViaUrlEmbed,
 	// Alignment,
 	Underline,
-	ImageResize,
+	ImageResize
 	// FontSize,
 	// FontColor,
 	// FontBackgroundColor,
