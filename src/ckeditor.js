@@ -30,6 +30,14 @@ import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
 
+import ImageViaUrlEmbed from 'ckeditor5-image-via-url/src/imageviaurlembed'; // Custom
+// import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
+import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline';
+import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize';
+// import FontSize from '@ckeditor/ckeditor5-font/src/fontsize';
+// import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor';
+// import FontBackgroundColor from '@ckeditor/ckeditor5-font/src/fontbackgroundcolor';
+
 export default class ClassicEditor extends ClassicEditorBase {}
 
 // Plugins to include in the build.
@@ -43,12 +51,12 @@ ClassicEditor.builtinPlugins = [
 	CKFinder,
 	EasyImage,
 	Heading,
+	Indent,
 	Image,
 	ImageCaption,
 	ImageStyle,
 	ImageToolbar,
 	ImageUpload,
-	Indent,
 	Link,
 	List,
 	MediaEmbed,
@@ -56,7 +64,14 @@ ClassicEditor.builtinPlugins = [
 	PasteFromOffice,
 	Table,
 	TableToolbar,
-	TextTransformation
+	TextTransformation,
+	ImageViaUrlEmbed,
+	// Alignment,
+	Underline,
+	ImageResize,
+	// FontSize,
+	// FontColor,
+	// FontBackgroundColor,
 ];
 
 // Editor configuration.
@@ -65,29 +80,38 @@ ClassicEditor.defaultConfig = {
 		items: [
 			'heading',
 			'|',
+			'ckfinder',
+			'imageviaurlembed',
+			'mediaEmbed',
+			'|',
+			// 'alignment',
 			'bold',
 			'italic',
+			'underline',
+			'|',
 			'link',
 			'bulletedList',
 			'numberedList',
-			'|',
-			'indent',
-			'outdent',
-			'|',
-			'imageUpload',
 			'blockQuote',
 			'insertTable',
-			'mediaEmbed',
 			'undo',
 			'redo'
 		]
 	},
 	image: {
 		toolbar: [
+			'imageStyle:alignLeft',
+			'imageStyle:alignCenter',
 			'imageStyle:full',
-			'imageStyle:side',
+			'imageStyle:alignRight',
 			'|',
 			'imageTextAlternative'
+		],
+		styles: [
+			'full',
+			'alignCenter',
+			'alignLeft',
+			'alignRight'
 		]
 	},
 	table: {
